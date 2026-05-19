@@ -1,0 +1,6 @@
+/*
+Purpose:
+Express server with Socket.IO handling real‑time drawing events and in‑memory board state.
+
+This is a placeholder file generated from BUILD_SPEC.json.
+*/

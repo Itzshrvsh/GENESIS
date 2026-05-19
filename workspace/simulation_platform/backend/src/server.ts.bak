@@ -1,0 +1,6 @@
+/*
+Purpose:
+Creates and starts the Express server, registers routes, middleware, and Socket.IO.
+
+This is a placeholder file generated from BUILD_SPEC.json.
+*/

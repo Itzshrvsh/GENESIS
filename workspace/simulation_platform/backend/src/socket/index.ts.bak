@@ -1,0 +1,6 @@
+/*
+Purpose:
+WebSocket server that forwards telemetry messages to connected clients.
+
+This is a placeholder file generated from BUILD_SPEC.json.
+*/

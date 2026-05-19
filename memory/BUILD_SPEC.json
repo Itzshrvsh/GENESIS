@@ -1,0 +1,151 @@
+{
+  "project_name": "simulation-platform",
+  "stack": "React 18 + Vite + TypeScript, Node.js 20 Express, Python 3.11 FastAPI + Celery, PostgreSQL, Redis, MinIO, Docker Compose, Helm",
+  "description": "A minimal web‑based AI‑enabled simulation platform with Auth0 OAuth, scenario CRUD, real‑time telemetry via WebSocket, AI helper routes, and containerised services orchestrated with Docker‑Compose (dev) and a single Helm chart (prod).",
+  "commands": {
+    "setup": [
+      "npm ci --prefix frontend",
+      "npm ci --prefix backend",
+      "pip install -r simulation/requirements.txt",
+      "docker compose up -d"
+    ],
+    "run": [
+      "docker compose up",
+      "npm run dev --prefix frontend",
+      "npm start --prefix backend"
+    ],
+    "test": [
+      "npm test --prefix frontend",
+      "npm test --prefix backend",
+      "pytest simulation",
+      "cypress run"
+    ]
+  },
+  "folders": [
+    ".github/workflows",
+    "helm/simulation-platform",
+    "docs",
+    "frontend",
+    "frontend/src",
+    "frontend/src/api",
+    "frontend/src/components",
+    "frontend/src/pages",
+    "frontend/src/sockets",
+    "backend",
+    "backend/src",
+    "backend/src/routes",
+    "backend/src/middleware",
+    "backend/src/socket",
+    "backend/src/services",
+    "backend/src/db/prisma",
+    "simulation",
+    "simulation/app",
+    "scripts"
+  ],
+  "files": [
+    {
+      "path": "docker-compose.yml",
+      "purpose": "Defines development containers for frontend, backend, simulation service, PostgreSQL, Redis, MinIO, and optional Auth0 mock."
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "purpose": "GitHub Actions CI pipeline: linting, unit tests, Docker image build, and Helm deployment."
+    },
+    {
+      "path": "helm/simulation-platform/Chart.yaml",
+      "purpose": "Helm chart metadata for the production deployment."
+    },
+    {
+      "path": "helm/simulation-platform/values.yaml",
+      "purpose": "Default configuration values (image tags, resource limits, ingress, secrets)."
+    },
+    {
+      "path": "helm/simulation-platform/templates/deployment.yaml",
+      "purpose": "Kubernetes Deployment template for all services (frontend, backend, simulation)."
+    },
+    {
+      "path": "README.md",
+      "purpose": "Project overview, quick‑start commands, and contribution guidelines."
+    },
+    {
+      "path": "frontend/package.json",
+      "purpose": "Node dependencies and scripts for the React SPA."
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "purpose": "TypeScript compiler configuration for the frontend."
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "purpose": "Vite build configuration."
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "purpose": "Root React component that sets up routing and authentication context."
+    },
+    {
+      "path": "frontend/src/api/client.ts",
+      "purpose": "Generated TypeScript API client based on the OpenAPI spec."
+    },
+    {
+      "path": "backend/package.json",
+      "purpose": "Node dependencies and scripts for the Express API gateway."
+    },
+    {
+      "path": "backend/tsconfig.json",
+      "purpose": "TypeScript compiler configuration for the backend."
+    },
+    {
+      "path": "backend/src/app.ts",
+      "purpose": "Creates and configures the Express application, registers middleware and routes."
+    },
+    {
+      "path": "backend/src/routes/auth.ts",
+      "purpose": "Auth0 callback endpoint and token handling (optional PKCE flow)."
+    },
+    {
+      "path": "backend/src/routes/scenarios.ts",
+      "purpose": "CRUD API for user scenarios."
+    },
+    {
+      "path": "backend/src/routes/simulations.ts",
+      "purpose": "Endpoints to launch simulations and query status."
+    },
+    {
+      "path": "backend/src/routes/ai.ts",
+      "purpose": "AI helper routes that call OpenAI SDK (template generation, explanation, optimization)."
+    },
+    {
+      "path": "backend/src/socket/index.ts",
+      "purpose": "WebSocket server that subscribes to Redis telemetry channels and forwards messages to clients."
+    },
+    {
+      "path": "backend/src/middleware/jwt.ts",
+      "purpose": "Express middleware for JWT verification using Auth0 JWKS."
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "purpose": "Prisma data model defining User, Scenario, Simulation, AIRequest tables."
+    },
+    {
+      "path": "simulation/Dockerfile",
+      "purpose": "Container image for the Python simulation service."
+    },
+    {
+      "path": "simulation/requirements.txt",
+      "purpose": "Python dependencies: FastAPI, Uvicorn, Celery[redis], Redis, Pydantic, Boto3, NumPy."
+    },
+    {
+      "path": "simulation/app/main.py",
+      "purpose": "FastAPI entry point exposing /run, health, and /metrics endpoints."
+    },
+    {
+      "path": "simulation/app/worker.py",
+      "purpose": "Celery task that executes a simulation, publishes telemetry to Redis, and stores results in MinIO."
+    },
+    {
+      "path": "scripts/generate-openapi-client.sh",
+      "purpose": "Generates the TypeScript client (frontend/src/api/client.ts) from the OpenAPI specification."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "project_name": "simulation-platform",
+  "stack": "React 18 + Vite + TypeScript, Node.js 20 Express, Socket.IO",
+  "description": "A minimal web\u2011based simulation platform with real\u2011time telemetry via WebSocket.",
+  "commands": {
+    "setup": [
+      "cd frontend && npm install",
+      "cd backend && npm install"
+    ],
+    "run": [
+      "cd backend && npm run dev",
+      "cd frontend && npm run dev"
+    ],
+    "test": [
+      "cd backend && npm run build",
+      "cd frontend && npm run build"
+    ]
+  },
+  "folders": [
+    ".github/workflows",
+    "frontend",
+    "frontend/src",
+    "frontend/src/api",
+    "frontend/src/components",
+    "frontend/src/pages",
+    "frontend/src/sockets",
+    "backend",
+    "backend/src",
+    "backend/src/routes",
+    "backend/src/middleware",
+    "backend/src/socket",
+    "scripts"
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "purpose": "GitHub Actions CI pipeline: linting, build validation, and Docker image creation."
+    },
+    {
+      "path": "README.md",
+      "purpose": "Project overview, quick\u2011start commands, and contribution guidelines."
+    },
+    {
+      "path": "frontend/package.json",
+      "purpose": "Node dependencies and scripts for the React SPA."
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "purpose": "TypeScript compiler configuration for the frontend."
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "purpose": "Vite build configuration."
+    },
+    {
+      "path": "frontend/index.html",
+      "purpose": "HTML entry point for the Vite React application."
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "purpose": "React entry point that renders the App component."
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "purpose": "Root React component that sets up routing and WebSocket client."
+    },
+    {
+      "path": "frontend/src/api/client.ts",
+      "purpose": "Generated TypeScript API client based on the OpenAPI spec."
+    },
+    {
+      "path": "backend/package.json",
+      "purpose": "Node dependencies and scripts for the Express API gateway."
+    },
+    {
+      "path": "backend/tsconfig.json",
+      "purpose": "TypeScript compiler configuration for the backend."
+    },
+    {
+      "path": "backend/src/server.ts",
+      "purpose": "Creates and starts the Express server, registers routes, middleware, and Socket.IO."
+    },
+    {
+      "path": "backend/src/routes/auth.ts",
+      "purpose": "Authentication endpoint (placeholder for MVP)."
+    },
+    {
+      "path": "backend/src/routes/scenarios.ts",
+      "purpose": "CRUD API for user scenarios."
+    },
+    {
+      "path": "backend/src/routes/simulations.ts",
+      "purpose": "Endpoints to launch simulations and query status."
+    },
+    {
+      "path": "backend/src/socket/index.ts",
+      "purpose": "WebSocket server that forwards telemetry messages to connected clients."
+    },
+    {
+      "path": "backend/src/middleware/jwt.ts",
+      "purpose": "Express middleware for JWT verification (placeholder)."
+    },
+    {
+      "path": "scripts/generate-openapi-client.sh",
+      "purpose": "Generates the TypeScript client (frontend/src/api/client.ts) from the OpenAPI specification."
+    }
+  ]
+}
