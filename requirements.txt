@@ -1,0 +1,53 @@
+# Core LLM and AI
+openai>=1.0.0
+anthropic>=0.7.0
+
+# Environment and Configuration
+python-dotenv>=1.0.0
+
+# CLI and Command Line Tools
+click>=8.1.0
+colorama>=0.4.6
+rich>=13.0.0
+
+# File and Template Handling
+jinja2>=3.1.0
+pyyaml>=6.0
+
+# JSON and Data Processing
+jsonschema>=4.17.0
+pydantic>=2.0.0
+
+# Async and Concurrency
+aiohttp>=3.8.0
+asyncio-contextmanager>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=23.0.0
+flake8>=6.0.0
+pylint>=3.0.0
+mypy>=1.0.0
+
+# Utilities
+requests>=2.31.0
+validators>=0.22.0
+slugify>=0.0.1
+
+# Development
+pip-tools>=7.3.0
+setuptools>=68.0.0
+wheel>=0.41.0
+
+# Optional: For web scraping if needed
+beautifulsoup4>=4.12.0
+
+# Optional: For database operations if needed
+sqlalchemy>=2.0.0
+
+# Optional: For enhanced logging
+loguru>=0.7.0
